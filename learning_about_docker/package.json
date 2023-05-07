@@ -1,0 +1,18 @@
+{
+  "name": "learning_about_docker",
+  "version": "1.0.0",
+  "description": "参考技术蛋老师的视频，用docker搭建一个简单的nodejs的项目 【🐳Docker概念，工作流和实践 - 入门必懂-哔哩哔哩】 https://b23.tv/m7xMckB",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

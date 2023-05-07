@@ -1,0 +1,15 @@
+# 此文件用yaml语言编写
+# 声明compose版本
+version: "3.8"
+# 每个容器都要在 services中声明
+services:
+  # 容器名
+  elderman-container-auto-update:
+    # 使用的镜像,在当前目录寻找dockerfile
+    build: .
+    ports:
+      - "3000:3000"
+    #可以用相对地址
+    volumes:
+      - ./:/start:ro
+      - /start/node_modules

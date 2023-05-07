@@ -1,0 +1,31 @@
+输入id可以只输入前几位
+=====镜像======
+docker build .  在该文件夹下寻找dockerfile进行build
+    -t [TAG] 创建时为镜像取名（TAG）
+docker images  查看所有镜像
+docker rmi [IMAGE TAG/IMAGE ID] 删除镜像
+    -f force 强制删除正在被使用的镜像
+
+=====容器=====
+docker run [IMAGE TAG/IMAGE ID]
+    -d detached mode 不占用当前终端来运行
+    -p [主机端口:容器端口]  开启端口映射
+    --name [container name] 给容器取名
+    -v volume 绑定同步两端文件
+        在命令行中
+        -v [本地文件夹绝对路径:容器文件夹绝对路径][:ro]  :ro可选，本地文件只读，不可覆盖  
+        -v [容器中不进行同步的文件夹]
+docker ps  查看正在运行的容器Process Status
+    -a 查看所有容器（包括已暂停/关机）
+docker exec [container NAME/ID] /bin/sh 访问容器
+    -i interactive 交互
+    -t pseudo-TTY 伪终端，用终端交互
+docker stop [container name/container ID] 将容器关机/暂停
+docker rm [container ID/container NAME] 删除容器
+    -f force
+    -v 删除volumn文件绑定
+=====从docker hub拉取与推送个人用户镜像
+docker login 
+docker push karry12138/single_page:v1.0  用户名/镜像名:项目版本
+docker pull [IMAGE TAG]
+
