@@ -1,0 +1,20 @@
+version: "3"
+services:
+# 名字在下面改。你可以把mssql修改成你想要的容器名称
+  mssql:
+    # image: mcr.microsoft.com/mssql/server:2017-CU8-ubuntu
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: always
+    volumes: 
+    # 数据库文件将保存在该文件目录下
+      - ./data/mssql:/var/opt/mssql/data/
+      - ./data/initdb/:/initdb/
+
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "20021124Qian"
+      MSSQL_PID: "Developer"
+      # 服务器排序方法（设置为中文字符集）
+      MSSQL_COLLATION: "Chinese_PRC_CI_AS"
+    ports:
+      - 1433:1433 # 宿主机端口:容器端口
